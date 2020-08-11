@@ -36,15 +36,14 @@ search: true
 nightMode: true
 
 # Comments 评论功能
-# comments:
+comments:
   # disqus: false
   # disqus_url: 'https://liaokeyu.disqus.com/embed.js'
-  # gitment: true
+  gitment: true
+  gitment_repo: Azur-Ice.github.io
+  gitment_clientId: 5254b51b058a15e05526
+  comment_gitment_clientSecret: faa1764b8c68046567234fd68c49bc8a5e2efa33
 
-# Gitment
-comment_gitment_repo: Azur-ice.github.io
-comment_gitment_clientId: 5254b51b058a15e05526
-comment_gitment_clientSecret: faa1764b8c68046567234fd68c49bc8a5e2efa33
 
 # MathJax 公式支持 by Ray-Eldath
 mathjax: true
