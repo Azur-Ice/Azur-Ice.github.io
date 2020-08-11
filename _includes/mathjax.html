@@ -1,43 +1,15 @@
-<!--
-Author: Ray-Eldath
-refer to:
- - http://docs.mathjax.org/en/latest/options/index.html
--->
+{%- include utils/get-sources.html -%}
+{%- assign _sources = __return -%}
+
 {% if site.mathjax %}
-	<!-- <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
-	<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.5/es5/tex-mml-chtml.js" integrity="sha512-HN09AiBpdgsW5Ra+746NP7orEp1tgDwhGyPHdXQuaJlwMjNE09JgvOdhObB9erDUSvx64BdFdtmm0UKbxvUJXg==" crossorigin="anonymous"></script> -->
-	<!-- <script type="text/javascript" id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/es5/latest?tex-mml-chtml.js"></script> -->
-	
-	<!-- <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-		jax: ["input/TeX", "output/HTML-CSS"],
-		tex2jax: {
-			inlineMath: [ ["$", "$"] ],
-			displayMath: [ ["$$", "$$"], ["\[", "\]"] ],
-			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-		},
-		"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-      });
-	</script> -->
-	<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 	<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-		tex2jax: {
-			inlineMath: [['$','$']],
-			displayMath: [ ["$$", "$$"] ],
-			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-		}
-	});
-	</script> -->
-	<!-- <script src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js"></script> -->
-	<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-svg.js"></script>
-	<script>
-		MathJax = {
-		  tex: {
-			inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-			displayMath: [ ['$$', '$$'] ],
-		  }
-		};
+		var _config = { tex2jax: {
+			inlineMath: [['$','$'], ['\\(','\\)']]
+		}};
+		<!-- {%- if _mathjax_autoNumber == true -%} -->
+			_config.TeX = { equationNumbers: { autoNumber: "all" } };
+		<!-- {%- endif -%} -->
+		MathJax.Hub.Config(_config);
 	</script>
+	<script type="text/javascript" src="{{ _sources.mathjax }}" async></script>
 {% endif %}

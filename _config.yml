@@ -87,3 +87,9 @@ permalink: /:year/:month/:day/:title.html
 
 # Plugins
 plugins: [jekyll-paginate]
+
+
+### Settings ###
+
+# CDN
+cdn: # bootcdn, unpkg(default)
