@@ -128,13 +128,15 @@
     });
   </script>
   {% if site.comments.gitment %}
-    <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
-    <script src="https://billts.site/js/gitment.js"></script>
+    <!-- <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+    <script src="https://billts.site/js/gitment.js"></script> -->
+    <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+    <script src="https://jjeejj.github.io/js/gitment.js"></script>
     <!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
     <script>
         var gitment = new Gitment({
-        id: '<%= page.date %>',
+            id: '<%= page.date %>',
             owner: 'Azur-Ice',
             repo: 'Azur-Ice.github.io',
             oauth: {
