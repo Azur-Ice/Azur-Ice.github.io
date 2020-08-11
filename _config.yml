@@ -40,17 +40,13 @@ comments:
   # disqus: false
   # disqus_url: 'https://liaokeyu.disqus.com/embed.js'
   gitment: true
-  # gitment_repo: Azur-Ice.github.io
-  # gitment_clientId: 5254b51b058a15e05526
-  # gitment_clientSecret: faa1764b8c68046567234fd68c49bc8a5e2efa33
-
 
 # MathJax 公式支持 by Ray-Eldath
 mathjax: true
 
 # Share
 social-share: true
-social-share-items: ['wechat', 'qq', 'qzone', 'weibo']
+social-share-items: ['wechat', 'qq']
 
 # theme color 主题皮肤
 theme-color: 'default'  # pink or default
