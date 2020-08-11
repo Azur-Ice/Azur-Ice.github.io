@@ -16,6 +16,8 @@ $$
 
 **这是一个`align`的公式**：
 
+$ \frac{?}{!} $
+
 $$
 \text{for OTP : $\qquad$ if }\quad E(k,\:m)=c\\
 
