@@ -123,24 +123,23 @@
     </script>
 
     <!-- ························Gitment评论系统·························· -->
-    <!-- {% if site.comments.gitment %} -->
+    {% if site.comment_gitment_repo %}
     <div id="gitmentContainer"></div>
-    <!-- <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
-    <script src="https://billts.site/js/gitment.js"></script> -->
     <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     <script>
-    var gitment = new Gitment({
-        owner: 'Azur-Ice',
-        repo: 'https://github.com/Azur-Ice/Azur-Ice.github.io.git',
-        oauth: {
-            client_id: '5254b51b058a15e05526',
-            client_secret: 'faa1764b8c68046567234fd68c49bc8a5e2efa33',
-        },
-    });
-    gitment.render('gitmentContainer');
+        var gitment = new Gitment({
+        id: '<%= page.date %>',
+            owner: '{{site.github_username}}',
+            repo: '{{site.comment_gitment_repo}}',
+            oauth: {
+                client_id: '{{site.comment_gitment_clientId}}',
+                client_secret: '{{site.comment_gitment_clientSecret}}',
+            },
+        });
+        gitment.render('gitmentContainer')
     </script>
-    <!-- {% end if %} -->
+    {% endif %}
 
     <!-- {% if site.comments.disqus %}
     <script>
