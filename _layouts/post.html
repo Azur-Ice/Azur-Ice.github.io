@@ -98,11 +98,30 @@
       </div>
       {% endif %}
     </section>
-    {% if site.comments.disqus %}
+    <!-- {% if site.comments.disqus %}
     <section class="post-footer-item comment">
         <div id="disqus_thread"></div>
     </section>
-    {% endif %}
+    {% endif %} -->
+    <!-- ························Gitment评论系统·························· -->
+    {% if site.comments.gitment %}
+    <div id="gitmentContainer"></div>
+    <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+    <script src="https://billts.site/js/gitment.js"></script>
+    <!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+    <script>
+    var gitment = new Gitment({
+        owner: 'Azur-Ice',
+        repo: 'Azur-Ice.github.io',
+        oauth: {
+            client_id: '5254b51b058a15e05526',
+            client_secret: 'faa1764b8c68046567234fd68c49bc8a5e2efa33',
+        },
+    });
+    gitment.render('gitmentContainer');
+    </script>
+    {% end if %}
   </section>
 
   {% include footer.html %}
@@ -122,7 +141,7 @@
     });
   </script>
 
-  {% if site.comments.disqus %}
+  <!-- {% if site.comments.disqus %}
   <script>
     /**
      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -140,7 +159,8 @@
       (d.head || d.body).appendChild(s);
     })();
   </script>
-  {% endif %}
+  {% endif %} -->
+
 
   <script src="{{ "/assets/js/prism.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/index.min.js" | relative_url }}"></script>
