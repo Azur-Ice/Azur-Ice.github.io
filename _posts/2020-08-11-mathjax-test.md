@@ -17,11 +17,13 @@ $$
 **这是一个`align`的公式**：
 
 $$
-\text{for OTP : $\qquad$ if }\quad E(k,\:m)=c\\
+\text{for OTP : $\qquad$ if }\quad E(k,\:m)=c\\\
+
 \begin{align}
-k\oplus m &= c\\
+k\oplus m &= c\\\
 k &= m\oplus c
-\end{align}\\
+\end{align}\\\
+
 \#\{\;k \in \mathscr K : \quad E(k,\:m)=c \;\}=1 \quad \forall m,\:c
 $$
 
