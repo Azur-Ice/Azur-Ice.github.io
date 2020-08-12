@@ -1,3 +1,2 @@
-
 # CDN 
-cdn: unpkg # bootcdn, unpkg
+cdn: jsdelivr # bootcdn, unpkg, jsdelivr

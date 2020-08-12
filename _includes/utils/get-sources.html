@@ -1,2 +1,2 @@
-{% assign _cdn = site.cdn | deafault: site.data.default.cdn %}
-{% assign __return = site.data.sources[_cdn] %}
+{%- assign _cdn = site.cdn | default: site.data.default.cdn -%}
+{%- assign __return = site.data.sources[_cdn] -%}

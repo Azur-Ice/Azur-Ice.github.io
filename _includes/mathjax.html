@@ -1,15 +1,13 @@
 {%- include utils/get-sources.html -%}
 {%- assign _sources = __return -%}
 
-{% if site.mathjax %}
-	<script type="text/x-mathjax-config">
-		var _config = { tex2jax: {
-			inlineMath: [['$','$'], ['\\(','\\)']]
-		}};
-		<!-- {%- if _mathjax_autoNumber == true -%} -->
-			_config.TeX = { equationNumbers: { autoNumber: "all" } };
-		<!-- {%- endif -%} -->
-		MathJax.Hub.Config(_config);
-	</script>
-	<script type="text/javascript" src="{{ _sources.mathjax }}" async></script>
-{% endif %}
+<!-- <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js"></script> -->
+<script async type="text/javascript" src="{{ _sources.mathjax }}" ></script>
+<script>
+	MathJax = {
+		tex: {
+		inlineMath: [ ['$', '$'] ],
+		displayMath: [ ['\\[', '\\]'] ],
+		}
+	};
+</script>

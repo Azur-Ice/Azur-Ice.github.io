@@ -35,15 +35,6 @@ search: true
 # Night mode
 nightMode: true
 
-# Comments 评论功能
-comments:
-  # disqus: false
-  # disqus_url: 'https://liaokeyu.disqus.com/embed.js'
-  gitalk: true
-
-# MathJax 公式支持 by Ray-Eldath
-mathjax: true
-
 # Share
 social-share: true
 social-share-items: ['wechat', 'qq']
@@ -90,6 +81,15 @@ plugins: [jekyll-paginate]
 
 
 ### Settings ###
-
+mathjax: # LaTex
+  enabled: true
+gitalk:  # Comment
+  enabled: true
+  clientID: 5254b51b058a15e05526
+  clientSecret: faa1764b8c68046567234fd68c49bc8a5e2efa33
+  repo: Azur-Ice.github.io
+  owner: Azur-Ice
+  admins: Azur-Ice
+### Configs ###
 # CDN
-cdn: # bootcdn, unpkg(default)
+cdn: # bootcdn, unpkg, jsdelivr(default)

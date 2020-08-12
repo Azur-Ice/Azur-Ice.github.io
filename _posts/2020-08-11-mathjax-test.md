@@ -19,15 +19,15 @@ $$
 $ \frac{?}{!} $
 
 $$
-    \text{for OTP : $\qquad$ if }\quad E(k,\:m)=c\\\\
+    \text{for OTP : $\qquad$ if }\quad E(k,\:m)=c
 $$
 
-```
-\begin{align}
+$$
+    \begin{align}
     k\oplus m &= c\\
     k &= m\oplus c
-\end{align}\\
-```
+    \end{align}
+$$
 
 $$
     \#\{\;k \in \mathscr K : \quad E(k,\:m)=c \;\}=1 \quad \forall m,\:c
