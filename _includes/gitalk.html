@@ -9,7 +9,7 @@
             clientSecret: '{{ site.gitalk.clientSecret }}',
             repo: '{{ site.gitalk.repo }}',
             owner: '{{ site.gitalk.owner }}',
-            admin: [{{ site.gitalk.admin }}],
+            admin: ['{{ site.gitalk.admin }}'],
             id: location.pathname.substr(0, 50)
         });
         gitalk.render('gitalk-comments');
