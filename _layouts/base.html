@@ -1,24 +1,17 @@
 ---
 layout: none
 ---
+
 <!DOCTYPE html>
 <html lang="zh-cn">
-  <head>
-    {%- include head.html -%}
-    <script>
-    //   {%- include scripts/utils/utils.js -%}
-    //   {%- include scripts/lib/throttle.js -%}
-      {%- include scripts/lazyload.js -%}
-    </script>
-    <!-- {%- include scripts/variables.html -%} -->
-  </head>
+    <head>
+        {% include head.html isPost = layout.isPost %}
+    </head>
   
-  <body>
-    <div class="root" data-is-touch="false">
-      {{ content }}
-    </div>
-    <script>
-    //   {%- include scripts/common.js -%}
-    </script>
-  </body>
+    <body>
+        <input id="nm-switch" type="hidden" value="{{ site.nightMode }}">
+        <div class="visible">
+            {{ content }}
+        </div>
+    </body>
 </html>

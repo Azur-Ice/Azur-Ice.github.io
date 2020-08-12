@@ -1,7 +1,7 @@
 # Site settings 配置站点
 title: 'Azur冰弦的博客'
 description: '瞎折腾基地'
-keyword: 'Azur-Ice, Azur-Ice的博客, Azur冰弦, Azur冰弦的博客, AzurCraft'
+keywords: 'Azur-Ice, Azur-Ice的博客, Azur冰弦, Azur冰弦的博客, AzurCraft'
 url: 'https://Azur-Ice.github.io' # your host
 
 # when build blog on server, if you don't need baseurl, you should leave this value blank.
@@ -16,12 +16,12 @@ baseurl: ''
 
 # Navigation links
 nav:
-  home: '/'
-  tags: '/tags.html'
+    home: '/'
+    tags: '/tags.html'
 
 # Footer
 footer:
-  since: 2020
+    since: 2020
 
 # Author 配置博主信息
 author: 'Azur冰弦'
@@ -48,11 +48,11 @@ postPatterns: 'circuitBoard'
 # SNS settings 配置社交网站
 # url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
 sns:
-  # weibo: '//weibo.com/lovecolcol'
-  # juejin: '//juejin.im/user/57a6f434165abd006159b4cc'
-  # instagram: '//www.instagram.com/steveliaocn'
-  github: '//github.com/Azur-Ice'
-  email: '973562770@qq.com'
+    # weibo: '//weibo.com/lovecolcol'
+    # juejin: '//juejin.im/user/57a6f434165abd006159b4cc'
+    # instagram: '//www.instagram.com/steveliaocn'
+    github: '//github.com/Azur-Ice'
+    email: '973562770@qq.com'
 
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar
@@ -67,7 +67,7 @@ exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'R
 markdown: kramdown
 highlighter: rouge
 kramdown:
-  input: GFM
+    input: GFM
 
 # RSS
 RSS: false
@@ -81,15 +81,16 @@ plugins: [jekyll-paginate]
 
 
 ### Settings ###
-mathjax: # LaTex
-  enabled: true
+mathjax: # Math Tex
+    enabled: true
 gitalk:  # Comment
-  enabled: true
-  clientID: 5254b51b058a15e05526
-  clientSecret: faa1764b8c68046567234fd68c49bc8a5e2efa33
-  repo: Azur-Ice.github.io
-  owner: Azur-Ice
-  admin: Azur-Ice
+    enabled: true
+    clientID: 5254b51b058a15e05526
+    clientSecret: faa1764b8c68046567234fd68c49bc8a5e2efa33
+    repo: Azur-Ice.github.io
+    owner: Azur-Ice
+    admin: Azur-Ice
+
 ### Configs ###
 # CDN
 cdn: # bootcdn, unpkg, jsdelivr(default)
