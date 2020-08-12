@@ -1,4 +1,6 @@
 jsdelivr:
+    font_awesome: 'https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'
+    jquery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js'
     gitalk:
         js: 'https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.js'
         css: 'https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css'

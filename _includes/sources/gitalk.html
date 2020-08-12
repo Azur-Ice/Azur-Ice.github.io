@@ -1,9 +1,9 @@
-{%- include utils/get-sources.html -%}
-{%- assign _sources = __return -%}
+<!-- {%- include utils/get-sources.html -%}
+{%- assign _sources = __return -%} -->
 
 <script>
-    window.Lazyload.css('https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css');
-    window.Lazyload.js('{{ _sources.gitalk.js }}', function() {
+    window.Lazyload.css('{{ include.sources.gitalk.css }}');
+    window.Lazyload.js('{{ include.sources.gitalk.js }}', function() {
         var gitalk = new Gitalk({
             clientID: '{{ site.gitalk.clientID }}',
             clientSecret: '{{ site.gitalk.clientSecret }}',

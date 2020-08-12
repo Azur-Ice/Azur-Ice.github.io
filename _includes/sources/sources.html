@@ -1,0 +1,17 @@
+{%- include utils/get-sources.html -%}
+{%- assign _sources = __return -%}
+
+{%- include sources/font-awesome.html sources = _sources -%}
+{%- include sources/jquery.html sources = _sources -%}
+
+{%- if include.isPost -%}
+    {%- if site.mathjax.enabled -%}
+        {%- include sources/mathjax.html sources = _sources -%}
+    {% endif %}
+
+    {%- if site.gitalk.enabled -%}
+        {%- include sources/gitalk.html sources = _sources -%}
+    {%- endif -%}
+
+    {%- include sources/anchor.html -%}
+{%- endif -%}

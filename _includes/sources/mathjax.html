@@ -1,8 +1,8 @@
-{%- include utils/get-sources.html -%}
-{%- assign _sources = __return -%}
+<!-- {%- include utils/get-sources.html -%}
+{%- assign _sources = __return -%} -->
 
 <!-- <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js"></script> -->
-<script async type="text/javascript" src="{{ _sources.mathjax }}" ></script>
+<script async type="text/javascript" src="{{ include.sources.mathjax }}" ></script>
 <script>
 	MathJax = {
 		tex: {
