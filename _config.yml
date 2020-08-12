@@ -51,8 +51,8 @@ sns:
     # weibo: '//weibo.com/lovecolcol'
     # juejin: '//juejin.im/user/57a6f434165abd006159b4cc'
     # instagram: '//www.instagram.com/steveliaocn'
-    github: '//github.com/Azur-Ice'
-    email: '973562770@qq.com'
+    github: 'https://github.com/Azur-Ice'
+    email: 'http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Y1pUUFZVUVRUUyMSEk0ADA4'
 
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar
