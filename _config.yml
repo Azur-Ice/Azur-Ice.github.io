@@ -89,7 +89,7 @@ gitalk:  # Comment
   clientSecret: faa1764b8c68046567234fd68c49bc8a5e2efa33
   repo: Azur-Ice.github.io
   owner: Azur-Ice
-  admins: Azur-Ice
+  admin: Azur-Ice
 ### Configs ###
 # CDN
 cdn: # bootcdn, unpkg, jsdelivr(default)
