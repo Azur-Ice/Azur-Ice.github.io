@@ -5,6 +5,433 @@ date: 2020-08-12
 tags: GoLang
 ---
 
+# 一、基础内容
+
+## 0. 流程控制
+
+```go
+for init; condition; post { }  // in C/C++: for(init; condition; post) { }
+for condition { }			   // in C/C++: while(condition) { }
+for { }						   // in C/C++: while(true) { }
+```
+
+### 循环语句 `range`
+
+> 可以对 `slice` , `map` , `array` , `string` 进行迭代循环。
+
+|             | 1st value | 2nd value |               |
+| ----------- | --------- | --------- | ------------- |
+| string      | index     | s[index]  | unicode, rune |
+| array/slice | index     | s[index]  |               |
+| map         | key       | m[key]    |               |
+| channel     | element   |           |               |
+
+`range` 中的 i, v 会从复制的对象中取出
+
+```go
+{% raw %}
+// 若a为值类型, i, v 是从复制的a（原数据的拷贝）中获得，获得到的并不是原a的数据
+a := [3]int{0, 1, 2}
+for i, v := range a { // index、value 都是从复制品中取出。
+    if i == 0 {
+        a[1], a[2] = 777, 777
+        fmt.Println(a) // [0, 777, 777]
+    }
+    a[i] = v + 100  // v != a[i]
+}
+fmt.Println(a)  // [100, 101, 102]
+{% endraw %}
+```
+
+```go
+{% raw %}
+// 若a为引用类型, i, v 是从复制的a（仍为对原数据的引用）中获得，获得到的为原数据。
+s := []int{1, 2, 3, 4, 5}
+for i, v := range s {
+	if i == 0 {
+        s = s[:3]
+        s[2] = 100
+        fmt.Println(s)  // [1, 2, 100]
+    }
+    fmt.Println(v)
+    // 1, 2, 100, 4, 5 复制的引用为[1:5]，复制后修改原引用为[:3]并不影响已复制的引用
+}
+{% endraw %}
+```
+
+#### `break` `continue` `goto`
+
+```go
+{% raw %}
+for i := 1; i <= 3; i++ {
+    fmt.Println(i)
+    for j := 1; j <= 3; j++ {
+        fmt.Print(j)
+        break
+        fmt.Print(j)
+    }
+}
+/*
+1
+12
+13
+1
+*/
+label:
+    for i := 1; i <= 3; i++ {
+        fmt.Println(i)
+        for j := 1; j <= 3; j++ {
+            fmt.Print(j)
+            break label
+        	fmt.Print(j)
+        }
+    }
+/*
+1
+1
+*/
+{% endraw %}
+```
+
+```go
+{% raw %}
+for i := 1; i <= 3; i++ {
+    fmt.Println(i)
+    for j := 1; j <= 3; j++ {
+        fmt.Print(j)
+        continue
+        fmt.Print(j)
+    }
+}
+/*
+1
+123
+2
+123
+3
+123
+*/
+label:
+    for i := 1; i <= 3; i++ {
+        fmt.Println(i)
+        for j := 1; j <= 3; j++ {
+            fmt.Print(j)
+            continue label
+        	fmt.Print(j)
+        }
+    }
+/*
+1
+12
+13
+1
+*/
+{% endraw %}
+```
+
+```go
+{% raw %}
+i := 1
+label:
+	fmt.Print(i++)
+	if i<10{
+		goto label
+	}
+// 12345678910
+{% endraw %}
+```
+
+## 1. 变量
+
+### > 声明
+
+使用关键字 `var` 声明变量。
+
+```go
+var identifier type
+var identifier1, identifier2, type  // 类型相同多个变量，一般用于非全局变量
+// "因式分解关键字"，一般用于全局变量
+var (
+	identifier3 type1
+    identifier4 type2
+)
+```
+
+```go
+var year, month int = 2020, 8
+var name string = "Azur-Ice"
+// var year, month = 2020, 8  // 编译器根据值自动推断类型
+// year, month := 2020, 8  // 简写（左侧必须是未声明的变量，且只能出现在函数体中）
+```
+
+> 声明的变量一定要被使用。
+
+### > 赋值
+
+```go
+a = b  // b赋值给a
+```
+
+### > 匿名变量 `_`
+
+> 不占用命名空间，不分配内存。
+
+```go
+{% raw %}
+func foo() (int, string) {
+    return 17, "Azur-Ice"
+}
+func main() {
+    x, _ := foo()
+    _, y := foo()
+    fmt.Printf("x=%v, y=%v", x, y)
+}
+{% endraw %}
+```
+
+> 由于go语言中定义过的变量一定要使用，对于多返回值的函数，常常使用匿名变量来抛弃要忽略的返回值。
+
+### 1> 数组
+
+#### 声明
+
+```go
+var identifier [SIZE]type
+```
+
+```go
+{% raw %}
+var arr [5]float32{1000.0, 2.0, 3.4, 7.0, 50.0}
+var arr0 [5]int = [5]int{1, 2, 3}				// 未初始化元素为默认值
+var arr2 = [...]int{1, 2, 3, 4, 5, 6}			// 初推断类型、始化确定数组长度
+var str = [5]string{3: "Azur", 4: "tom"}		// 索引号
+{% endraw %}
+```
+
+#### 访问
+
+`arr[index]`
+
+#### 多维
+
+```go
+{% raw %}
+var arr0 [5][3]int
+var arr1 [2][3]int = [...][3]int{{1, 2, 3}, {7, 8, 9}}  // 只有第一维度可以使用 "..."
+{% endraw %}
+```
+
+### 2> 切片
+
+> 长度不固定，可追加元素 的 数组
+
+#### 声明
+
+```go
+var identifier []type
+```
+
+```go
+var slice1 []type = makr([]type, len)  // len 初始长度
+slice2 := ([]T, length, capacity)  // capacity 容量（可选）
+```
+
+#### 切片初始化
+
+```
+s := []int{1,2,3}
+```
+
+直接初始化切片，[]表示是切片类型，{1,2,3}初始化值依次是1,2,3.其cap=len=3
+
+```
+s := arr[:] 
+```
+
+初始化切片s,是数组arr的引用
+
+```
+s := arr[startIndex:endIndex] 
+```
+
+将arr中从下标startIndex到endIndex-1 下的元素创建为一个新的切片
+
+```
+s := arr[startIndex:] 
+```
+
+默认 endIndex 为arr的最后一个元素下标
+
+```
+s := arr[:endIndex] 
+```
+
+默认 startIndex 为arr的第一个元素下标
+
+```
+s1 := s[startIndex:endIndex] 
+```
+
+通过切片s初始化切片s1
+
+```
+s :=make([]int,len,cap) 
+```
+
+> 切片是可索引的，并且可以由 len() 方法获取长度。
+>
+> 切片提供了计算容量的方法 cap() 可以测量切片最长可以达到多少。
+
+#### `append()` 和 `copy()`
+
+`append(slice, element[, element1, element2])` 将element（们）追加到slice末尾
+
+`copy(slice1, slice)` 将slice中内容copy到slice1
+
+### 3> map
+
+> map是一种无序的基于key-value的数据结构，Go语言中的map是引用类型，必须初始化才能使用。
+
+#### 定义
+
+```go
+map[KeyType]ValueType
+```
+
+#### 声明
+
+```go
+var m = make(map[KeyType]ValueType, [cap])
+```
+
+#### 1. 判断某个Key是否存在
+
+```go
+v, ok := v_map[key]
+```
+
+若存在，ok为true，v为对应的value。
+
+若不存在，ok为false，v值类型的零值。
+
+#### 2. 遍历
+
+
+
+### 4> 结构体
+
+#### 定义
+
+```go
+type struct_variable_type struct {
+	member definition
+	member definition
+	...
+	member definition
+}
+```
+
+```go
+type Books struct {
+   title string
+   author string
+   subject string
+   book_id int
+}
+```
+
+#### 声明
+
+```go
+v_name := struct_variable_type {value1, value2, ..., valuen}
+// v_name := struct_variable_type { key1: value1, key2: value2..., keyn: valuen}
+```
+
+```go
+a := Books{"GoLang Basic", "Azur-Ice", "GoLang", 7777777}
+b := Books{title: "2020Fighting", author: "Azur-Ice"}
+```
+
+#### 访问
+
+`v.member`
+
+### 5> 指针
+
+`&` 和 `*` ......
+
+
+
+
+
+
+
+
+## 2. 常量
+
+关键字 `const`
+
+> 同时声明多个常量时，如果省略了值则表示和上面一行的值相同。 
+
+### > 特殊常量 iota
+
+在 `const` 关键字出现时被重置为0，每新增一行常量声明将使 `iota` 自增1.
+
+```go
+const (
+            a = iota   // a = 0, iota = 0
+            b          // b = 1, iota = 1
+            c          // c = 2, iota = 2
+            d = "ha"   // d = "ha"，iota = 3
+            e          // e = 4, iota = 4
+            f = 100    // f = 100, iota =5
+            g          // g = 6, iota =6
+            h = iota   // g = 7, iota =7
+            i          // g = 8, iota =8
+    )
+```
+
+```
+const (
+	_ = iota	 // iota = 0
+    i = 1<<iota  // i = 1<<1 = 2, iota=1
+    j = 3<<iota  // j = 3<<2 = 12, iota=2
+    k		     // k = 3<<3 = 24, iota=3
+    l		     // l = 3<<4 = 48, iota=4
+)
+```
+
+多个 `iota` 定义在一行
+
+```go
+const (
+    a, b = iota + 1, iota + 2 //1,2
+    c, d                      //2,3
+    e, f                      //3,4
+)
+```
+
+## 3. 函数
+
+### > 定义
+
+```go
+func func_name( para1[, para2, ...] ) return_type1[, return_typr2, ...] {
+	// do sth
+    return v1[,v2, ...]
+}
+```
+
+无返回值时不需要return
+
+有返回值时必须return
+
+### > 引用传递
+
+定义 `*` ，传入 `&`
+
+
+
 # 一、注释 （C/C++）
 
 - 单行注释
