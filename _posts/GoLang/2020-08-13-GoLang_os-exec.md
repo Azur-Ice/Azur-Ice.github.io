@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Go语言 - os/exec包
 date: 2020-08-13
 tags: GoLang
