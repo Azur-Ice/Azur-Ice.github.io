@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Go语言 YAML
+title: Go语言 - YAML
 date: 2020-08-13
 tags: GoLang YAML
 ---
