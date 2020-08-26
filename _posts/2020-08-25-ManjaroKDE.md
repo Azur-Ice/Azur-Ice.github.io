@@ -99,13 +99,47 @@ sudo pacman -S neovim
 
 配置 `oh-my-zsh`
 
-1. 修改默认shell为zsh
+1. 修改默认 shell 为 zsh
 
 	`chsh -s /usr/bin/zsh`
 
 2. 安装 `oh-my-zsh`
 
 	`wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh`
+
+    > 如果多次提示被拒绝，就修改 `/etc/hosts` ：
+    >
+    > ```
+    > # GitHub Start
+    > 151.101.76.133 raw.githubusercontent.com
+    > # GitHub End
+    > ```
+
+	> 重启后即会生效
+	
+3. 优化体验
+
+	- 命令高亮 `zsh-syntax-highlighting`
+
+		```
+		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+		```
+
+	- 记住之前使用过的命令 `autosuggestions`
+
+		```text
+		git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+		```
+
+	修改 `~/.zshrc` 启用插件
+
+	```
+	plugins=(git zsh-syntax-highlightinh zsh-autosuggestions sudo extract)
+	```
+
+	> **sudo** 是自带插件，双击Esc在输入命令开头添加 `sudo`
+	>
+	> **extract** 也是，不同文件可以直接使用 `extract xxx` 来解压
 
 ### 录视频相关
 
