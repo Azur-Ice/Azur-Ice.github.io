@@ -134,7 +134,7 @@ sudo pacman -S neovim
 	修改 `~/.zshrc` 启用插件
 
 	```
-	plugins=(git zsh-syntax-highlightinh zsh-autosuggestions sudo extract)
+	plugins=(git zsh-syntax-highlighting zsh-autosuggestions sudo extract)
 	```
 
 	> **sudo** 是自带插件，双击Esc在输入命令开头添加 `sudo`
