@@ -95,7 +95,17 @@ sudo pacman -S neovim
 
 现在，找到一个可以打字的地方，切换到 `rime` 输入法，右键系统托盘的图标，点击重新部署，待加载完成就可以看到出现 `🍀四叶草简体拼音` 啦。
 
+### 2. Shell
 
+配置 `oh-my-zsh`
+
+1. 修改默认shell为zsh
+
+	`chsh -s /usr/bin/zsh`
+
+2. 安装 `oh-my-zsh`
+
+	`wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh`
 
 ### 录视频相关
 
