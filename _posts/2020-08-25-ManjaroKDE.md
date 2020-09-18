@@ -21,14 +21,14 @@ tags: manjaro linux
 
 > **pacman** `-S` 安装， `-R` 卸载。
 
-### OvO
+### 0. OvO
 
 #### 总是最先要安装的东西们
 
 ```shell
-sudo pacman -S git
-sudo pacman -S neovim
-sudo pacman -S yay
+sudo pacman -S git    # git版本管理
+sudo pacman -S neovim # 编辑器
+sudo pacman -S yay    # 一些pacman无法安装的包可以用这个来安装
 ```
 
 #### 总是最先要搞定的东西们
@@ -52,7 +52,7 @@ sudo pacman -S yay
 
 	重启
 
-### 输入法
+### 1. 输入法
 
 基于 `fcitx5` 配置 `rime-cloverpinyin`
 
@@ -94,9 +94,9 @@ sudo pacman -S yay
 
 	> `"manu/page_size"` 为每页候选词数目，可根据自己习惯设为1~9。
 
-现在，找到一个可以打字的地方，切换到 `rime` 输入法，右键系统托盘的图标，点击重新部署，待加载完成就可以看到出现 `🍀四叶草简体拼音` 啦。
+现在，找到一个可以打字的地方，切换到 `rime` 输入法，右键系统托盘的图标，点击重新部署，待加载完成可以看到出现 `🍀四叶草简体拼音` 。
 
-### Shell
+### 2. Shell
 
 配置 `oh-my-zsh`
 
@@ -142,7 +142,7 @@ sudo pacman -S yay
 	>
 	> **extract** 也是，不同文件可以直接使用 `extract xxx` 来解压
 
-### 录视频、写文章相关
+### 3. 录视频、截图、写文章相关
 
 - 录屏 `sudo pacman -S simplescreenrecorder`
 
@@ -158,7 +158,7 @@ sudo pacman -S yay
 
 	> KDE有一个自带的截图工具 `Spectacle` ，不过没有 `deepin-screenshot` 好用，如果有快捷键冲突可以在全局快捷键里将其禁用。
 
-### 编辑器
+### 4. 编辑器
 
 - neovim `sudo pacman -S neovim`
 
